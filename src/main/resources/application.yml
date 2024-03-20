@@ -1,3 +1,7 @@
 server:
   servlet:
     context-path: /advogasystem/api
+
+springdoc:
+  swagger-ui:
+    path: /swagger
