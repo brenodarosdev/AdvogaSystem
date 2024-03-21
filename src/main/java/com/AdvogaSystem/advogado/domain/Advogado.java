@@ -1,5 +1,6 @@
 package com.AdvogaSystem.advogado.domain;
 
+import com.AdvogaSystem.advogado.application.api.AdvogadoRequest;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
@@ -24,9 +25,9 @@ public class Advogado {
     @NotBlank(message = "Este campo não pode estar em branco")
     private String nomeCompleto;
 
-    public Advogado(UUID idAdvogado, String email, String nomeCompleto) {
+    public Advogado(AdvogadoRequest advogadoRequest) {
         this.idAdvogado = UUID.randomUUID();
-        this.email = email;
-        this.nomeCompleto = nomeCompleto;
+        this.email = advogadoRequest.getEmail();
+        this.nomeCompleto = advogadoRequest.getNomeCompleto();
     }
 }
