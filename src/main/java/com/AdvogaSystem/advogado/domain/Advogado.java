@@ -14,7 +14,7 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Document(collection = "advogado")
-public class advogado {
+public class Advogado {
     @Id
     private UUID idAdvogado;
     @NotBlank(message = "O email não pode estar em branco")
@@ -24,8 +24,8 @@ public class advogado {
     @NotBlank(message = "Este campo não pode estar em branco")
     private String nomeCompleto;
 
-    public advogado(UUID idAdvogado, String email, String nomeCompleto) {
-        this.idAdvogado = idAdvogado;
+    public Advogado(UUID idAdvogado, String email, String nomeCompleto) {
+        this.idAdvogado = UUID.randomUUID();
         this.email = email;
         this.nomeCompleto = nomeCompleto;
     }
