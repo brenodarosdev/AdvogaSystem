@@ -12,8 +12,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.UUID;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Document(collection = "advogado")
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Advogado {
     @Id
     private UUID idAdvogado;
