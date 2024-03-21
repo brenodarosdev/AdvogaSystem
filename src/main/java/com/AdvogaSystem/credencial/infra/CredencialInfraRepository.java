@@ -8,11 +8,20 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
-@RequiredArgsConstructor
-@Repository
 @Log4j2
+@Repository
+@RequiredArgsConstructor
 public class CredencialInfraRepository implements CredencialRepository {
     private final CredencialSpringDataMongoDBRepository credencialSpringDataMongoDBRepository;
+
+    @Override
+    public Credencial  salva(Credencial novaCredencial) {
+        log.info("[inicia] CredencialInfraRepository - salva");
+        Credencial credencialSalva = credencialSpringDataMongoDBRepository.save(novaCredencial);
+        log.info("[inicia] CredencialInfraRepository - salva");
+        return credencialSalva;
+    }
+
     @Override
     public Credencial buscaCredencialPorEmail(String email) {
         log.info("[inicia] CredencialInfraRepository - buscaCredencialPorEmail");
