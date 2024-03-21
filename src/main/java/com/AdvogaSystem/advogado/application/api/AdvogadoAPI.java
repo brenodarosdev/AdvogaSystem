@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/public/v1/advogado")
 public interface AdvogadoAPI {
-    @PostMapping("/novoAdvogado")
+    @PostMapping("/novo-advogado")
     @ResponseStatus(code = HttpStatus.CREATED)
     @Operation(summary = "Cria novo Advogado")
     AdvogadoCriadoResponse postCadastraNovoAdvogado(@RequestBody @Valid AdvogadoRequest advogadoNovoRequest);
