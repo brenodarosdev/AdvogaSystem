@@ -18,6 +18,6 @@ public class AdvogadoApplicationService implements AdvogadoService {
         log.info("[inicia] AdvogadoApplicationService - cadastraNovoAdvogado");
         Advogado advogado = advogadoRepository.salva(new Advogado(advogadoNovoRequest));
         log.info("[finaliza] AdvogadoApplicationService - cadastraNovoAdvogado");
-        return null;
+        return new AdvogadoCriadoResponse(advogado);
     }
 }
