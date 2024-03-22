@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Advocacia")
 @RestController
-@RequestMapping("/public/advocacia")
+@RequestMapping("/public/v1/advocacia")
 public interface AdvocaciaAPI {
     @PostMapping("/nova-advocacia")
     @ResponseStatus(code = HttpStatus.CREATED)
