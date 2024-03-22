@@ -15,13 +15,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.Collection;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-@Document(collection = "Credencial")
+@Document(collection = "credencial")
 public class Credencial implements UserDetails {
     @MongoId(targetType = FieldType.STRING)
     @Getter
     private String email;
     @NotBlank
-    @Size(min = 6, max = 60)
+    @Size(min = 8, max = 20)
     private String senha;
     @Getter
     private boolean validado;
