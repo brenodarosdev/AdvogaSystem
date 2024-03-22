@@ -15,8 +15,8 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
 
-@Service
 @Log4j2
+@Service
 public class TokenService {
     @Value("${advogasystem.jwt.expiracao}")
     private String expiracao;
