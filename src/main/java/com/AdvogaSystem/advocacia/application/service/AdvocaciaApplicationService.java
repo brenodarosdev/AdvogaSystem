@@ -19,6 +19,6 @@ public class AdvocaciaApplicationService implements AdvocaciaService {
         log.info("[inicia] AdvocaciaApplicationService - cadastraNovaAdvocacia");
         Advocacia advocacia = advocaciaRepository.salva(new Advocacia(advocaciaNovoRequest));
         log.info("[finaliza] AdvocaciaApplicationService - cadastraNovaAdvocacia");
-        return null;
+        return new AdvocaciaCriadaResponse(advocacia);
     }
 }
