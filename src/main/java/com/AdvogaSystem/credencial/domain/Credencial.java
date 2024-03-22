@@ -21,7 +21,7 @@ public class Credencial implements UserDetails {
     @Getter
     private String email;
     @NotBlank
-    @Size(min = 6, max = 60)
+    @Size(min = 8, max = 20)
     private String senha;
     @Getter
     private boolean validado;
