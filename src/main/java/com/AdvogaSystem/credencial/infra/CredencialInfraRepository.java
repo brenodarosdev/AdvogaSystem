@@ -13,6 +13,15 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class CredencialInfraRepository implements CredencialRepository {
     private final CredencialSpringDataMongoDBRepository credencialSpringDataMongoDBRepository;
+
+    @Override
+    public Credencial salva(Credencial credencial) {
+        log.info("[inicia] CredencialInfraRepository - salva");
+        Credencial credencialSalva = credencialSpringDataMongoDBRepository.save(credencial);
+        log.info("[finaliza] CredencialInfraRepository - salva");
+        return credencialSalva;
+    }
+
     @Override
     public Credencial buscaCredencialPorEmail(String email) {
         log.info("[inicia] CredencialInfraRepository - buscaCredencialPorEmail");
