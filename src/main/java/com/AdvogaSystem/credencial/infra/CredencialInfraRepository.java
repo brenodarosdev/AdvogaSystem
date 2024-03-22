@@ -8,9 +8,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
-@RequiredArgsConstructor
-@Repository
 @Log4j2
+@Repository
+@RequiredArgsConstructor
 public class CredencialInfraRepository implements CredencialRepository {
     private final CredencialSpringDataMongoDBRepository credencialSpringDataMongoDBRepository;
     @Override

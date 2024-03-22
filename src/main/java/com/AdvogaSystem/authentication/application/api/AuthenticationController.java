@@ -6,17 +6,17 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequiredArgsConstructor
-@RestController
 @Log4j2
+@RestController
+@RequiredArgsConstructor
 public class AuthenticationController implements AuthenticationAPI {
     private final AuthenticationService authenticationService;
 
     @Override
-    public TokenResponse autenticaUsuario(AuthenticationRequest authenticationRequest) {
-        log.info("[inicia] AuthenticationController - autenticaUsuario");
+    public TokenResponse autenticaAdvocacia(AuthenticationRequest authenticationRequest) {
+        log.info("[inicia] AuthenticationController - autenticaAdvocacia");
         Token token = authenticationService.autentica(authenticationRequest.getUserPassToken());
-        log.info("[finaliza] AuthenticationController - autenticaUsuario");
+        log.info("[finaliza] AuthenticationController - autenticaAdvocacia");
         return new TokenResponse(token);
     }
 }

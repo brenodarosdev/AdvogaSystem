@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestControllerAdvice
 @Log4j2
+@RestControllerAdvice
 public class RestResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)

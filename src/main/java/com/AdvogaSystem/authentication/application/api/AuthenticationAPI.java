@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Tag(name = "Autenticação")
 @RequestMapping("/public/v1/autentica")
 public interface AuthenticationAPI {
-    @PostMapping("/usuario")
+    @PostMapping("/advocacia")
     @ResponseStatus(code = HttpStatus.OK)
-    @Operation(summary = "Autentica Usuário")
-    TokenResponse autenticaUsuario(@RequestBody @Valid AuthenticationRequest authenticationRequest);
+    @Operation(summary = "Autentica Advocacia")
+    TokenResponse autenticaAdvocacia(@RequestBody @Valid AuthenticationRequest authenticationRequest);
 }

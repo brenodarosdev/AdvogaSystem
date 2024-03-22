@@ -14,8 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collection;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Document(collection = "credencial")
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Credencial implements UserDetails {
     @MongoId(targetType = FieldType.STRING)
     @Getter

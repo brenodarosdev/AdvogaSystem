@@ -30,17 +30,17 @@ public class FiltroToken extends OncePerRequestFilter {
             throws ServletException, IOException {
         log.info("[inicia] Filtro - filtrando requisição");
         String token = recuperaToken(request);
-        autenticaUsuario(token);
+        autenticaAdvocacia(token);
         log.info("[finaliza] Filtro - filtrando requisição");
         filterChain.doFilter(request, response);
     }
 
-    private void autenticaUsuario(String token) {
-        log.info("[inicia] autenticaUsuario - utilizando token válido para autenticar o email");
+    private void autenticaAdvocacia(String token) {
+        log.info("[inicia] autenticaAdvocacia - utilizando token válido para autenticar o email");
         Credencial credencial = recuperaEmail(token);
         var authenticationToken = new UsernamePasswordAuthenticationToken(credencial, null, credencial.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-        log.info("[finaliza] autenticaUsuario - utilizando token válido para autenticar o email");
+        log.info("[finaliza] autenticaAdvocacia - utilizando token válido para autenticar o email");
     }
 
     private Credencial recuperaEmail(String token) {
