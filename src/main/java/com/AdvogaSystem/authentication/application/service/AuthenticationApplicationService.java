@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class AuthenticationApplicationService implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final TokenService tokenService;
+
     @Override
     public Token autentica(UsernamePasswordAuthenticationToken userPassToken) {
         log.info("[inicia] AuthenticationApplicationService - autentica");
