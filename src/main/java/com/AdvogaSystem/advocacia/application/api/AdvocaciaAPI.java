@@ -6,6 +6,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @Tag(name = "Advocacia")
 @RestController
 @RequestMapping("/public/v1/advocacia")
@@ -14,4 +16,11 @@ public interface AdvocaciaAPI {
     @ResponseStatus(code = HttpStatus.CREATED)
     @Operation(summary = "Cadastra nova Advocacia")
     AdvocaciaCriadaResponse postCadastraNovaAdvocacia(@Valid @RequestBody AdvocaciaRequest advocaciaNovoRequest);
+
+    @GetMapping("/busca-advocacia/{idAdvocacia}")
+    @ResponseStatus(code = HttpStatus.OK)
+    @Operation(summary = "Busca Advocacia")
+    AdvocaciaDetalhadaResponse getBuscaAdvocaciaPorId(@RequestHeader(name = "Authorization") String token,
+                                                      @PathVariable UUID idAdvocacia);
+
 }

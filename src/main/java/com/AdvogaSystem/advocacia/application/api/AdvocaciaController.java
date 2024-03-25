@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @Log4j2
 @RestController
 @RequiredArgsConstructor
@@ -17,5 +19,12 @@ public class AdvocaciaController implements AdvocaciaAPI {
         AdvocaciaCriadaResponse advocaciaCriadaResponse = advocaciaService.cadastraNovaAdvocacia(advocaciaNovoRequest);
         log.info("[finaliza] AdvocaciaController - postCadastraNovaAdvocacia");
         return advocaciaCriadaResponse;
+    }
+
+    @Override
+    public AdvocaciaDetalhadaResponse getBuscaAdvocaciaPorId(String token, UUID idAdvocacia) {
+        log.info("[inicia] AdvocaciaController - getBuscaAdvocaciaPorId");
+        log.info("[finaliza] AdvocaciaController - getBuscaAdvocaciaPorId");
+        return null;
     }
 }
