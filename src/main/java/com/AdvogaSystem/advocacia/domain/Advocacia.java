@@ -38,4 +38,9 @@ public class Advocacia {
             throw APIException.build(HttpStatus.UNAUTHORIZED, "O token fornecido não pertence a esta advocacia!");
         }
     }
+
+    public void alteraAdvocacia(AdvocaciaRequest alteraAdvocaciaRequest) {
+        this.email = alteraAdvocaciaRequest.getEmail();
+        this.nomeDaAdvocacia = alteraAdvocaciaRequest.getNomeDaAdvocacia();
+    }
 }
