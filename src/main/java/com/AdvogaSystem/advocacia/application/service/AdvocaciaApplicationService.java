@@ -38,4 +38,10 @@ public class AdvocaciaApplicationService implements AdvocaciaService {
         log.info("[finaliza] AdvocaciaApplicationService - buscaAdvocaciaPorId");
         return new AdvocaciaDetalhadaResponse(advocaciaPorEmail);
     }
+
+    @Override
+    public void alteraAdvocacia(String emailAdvocacia, UUID idAdvocacia, AdvocaciaRequest alteraAdvocaciaRequest) {
+        log.info("[inicia] AdvocaciaApplicationService - alteraAdvocacia");
+        log.info("[finaliza] AdvocaciaApplicationService - alteraAdvocacia");
+    }
 }
