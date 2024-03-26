@@ -10,6 +10,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Log4j2
 @Repository
 @RequiredArgsConstructor
@@ -26,5 +28,25 @@ public class AdvocaciaInfraRepository implements AdvocaciaRepository {
         } catch (DataIntegrityViolationException e) {
             throw APIException.build(HttpStatus.BAD_REQUEST, "Já existe uma advocacia cadastrada com este email!");
         }
+    }
+
+    @Override
+    public Advocacia advocaciaPorEmail(String emailAdvocacia) {
+        log.info("[inicia] AdvocaciaInfraRepository - advocaciaPorEmail");
+        Advocacia advocacia = advocaciaSpringDataMongoDBRepository.findByEmail(emailAdvocacia)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
+                        "Nenhuma advocacia encontrada com este email"));
+        log.info("[finaliza] AdvocaciaInfraRepository - advocaciaPorEmail");
+        return advocacia;
+    }
+
+    @Override
+    public Advocacia advocaciaPorId(UUID idAdvocacia) {
+        log.info("[inicia] AdvocaciaInfraRepository - advocaciaPorId");
+        Advocacia advocacia = advocaciaSpringDataMongoDBRepository.findByIdAdvocacia(idAdvocacia)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
+                        "Nenhuma advocacia encontrada com este ID"));
+        log.info("[finaliza] AdvocaciaInfraRepository - advocaciaPorId");
+        return advocacia;
     }
 }

@@ -31,7 +31,11 @@ public class AdvocaciaApplicationService implements AdvocaciaService {
     @Override
     public AdvocaciaDetalhadaResponse buscaAdvocaciaPorId(String emailAdvocacia, UUID idAdvocacia) {
         log.info("[inicia] AdvocaciaApplicationService - buscaAdvocaciaPorId");
+        Advocacia advocaciaPorEmail = advocaciaRepository.advocaciaPorEmail(emailAdvocacia);
+        advocaciaRepository.advocaciaPorId(idAdvocacia);
+        advocaciaPorEmail.validaAdvocacia(idAdvocacia);
+        log.info("Advocacia validada - O token pertence à Advocacia");
         log.info("[finaliza] AdvocaciaApplicationService - buscaAdvocaciaPorId");
-        return null;
+        return new AdvocaciaDetalhadaResponse(advocaciaPorEmail);
     }
 }
