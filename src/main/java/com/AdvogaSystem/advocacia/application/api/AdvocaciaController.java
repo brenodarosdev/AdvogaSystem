@@ -1,8 +1,11 @@
 package com.AdvogaSystem.advocacia.application.api;
 
 import com.AdvogaSystem.advocacia.application.service.AdvocaciaService;
+import com.AdvogaSystem.config.security.service.TokenService;
+import com.AdvogaSystem.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -12,6 +15,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AdvocaciaController implements AdvocaciaAPI {
     private final AdvocaciaService advocaciaService;
+    private final TokenService tokenService;
 
     @Override
     public AdvocaciaCriadaResponse postCadastraNovaAdvocacia(AdvocaciaRequest advocaciaNovoRequest) {
@@ -24,7 +28,10 @@ public class AdvocaciaController implements AdvocaciaAPI {
     @Override
     public AdvocaciaDetalhadaResponse getBuscaAdvocaciaPorId(String token, UUID idAdvocacia) {
         log.info("[inicia] AdvocaciaController - getBuscaAdvocaciaPorId");
+        String emailAdvocacia = tokenService.getEmailByBearerToken(token)
+                .orElseThrow(() -> APIException.build(HttpStatus.UNAUTHORIZED, "Token inválido!"));
+        AdvocaciaDetalhadaResponse advocaciaDetalhadaResponse = advocaciaService.buscaAdvocaciaPorId(emailAdvocacia, idAdvocacia);
         log.info("[finaliza] AdvocaciaController - getBuscaAdvocaciaPorId");
-        return null;
+        return advocaciaDetalhadaResponse;
     }
 }
