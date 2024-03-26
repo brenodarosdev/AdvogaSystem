@@ -26,5 +26,6 @@ public interface AdvocaciaAPI {
     @PatchMapping("/edita-advocacia/{idAdvocacia}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     @Operation(summary = "Altera Advocacia")
-    void patchAlteraAdvocacia(@RequestHeader(name = "Authorization") String token, @PathVariable UUID idAdvocacia);
+    void patchAlteraAdvocacia(@RequestHeader(name = "Authorization") String token, @PathVariable UUID idAdvocacia,
+                              @RequestBody @Valid AdvocaciaRequest alteraAdvocaciaRequest);
 }

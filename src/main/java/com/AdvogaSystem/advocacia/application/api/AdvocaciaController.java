@@ -28,7 +28,7 @@ public class AdvocaciaController implements AdvocaciaAPI {
     @Override
     public AdvocaciaDetalhadaResponse getBuscaAdvocaciaPorId(String token, UUID idAdvocacia) {
         log.info("[inicia] AdvocaciaController - getBuscaAdvocaciaPorId");
-        String emailAdvocacia = tokenService.getEmailByBearerToken(token) -
+        String emailAdvocacia = tokenService.getEmailByBearerToken(token)
                 .orElseThrow(() -> APIException.build(HttpStatus.UNAUTHORIZED, "Token inválido!"));
         AdvocaciaDetalhadaResponse advocaciaDetalhadaResponse = advocaciaService.buscaAdvocaciaPorId(emailAdvocacia, idAdvocacia);
         log.info("[finaliza] AdvocaciaController - getBuscaAdvocaciaPorId");
@@ -36,7 +36,7 @@ public class AdvocaciaController implements AdvocaciaAPI {
     }
 
     @Override
-    public void patchAlteraAdvocacia(String token, UUID idAdvocacia) {
+    public void patchAlteraAdvocacia(String token, UUID idAdvocacia, AdvocaciaRequest alteraAdvocaciaRequest) {
         log.info("[inicia] AdvocaciaController - patchAlteraAdvocacia");
         log.info("[finaliza] AdvocaciaController - patchAlteraAdvocacia");
     }
