@@ -23,4 +23,8 @@ public interface AdvocaciaAPI {
     AdvocaciaDetalhadaResponse getBuscaAdvocaciaPorId(@RequestHeader(name = "Authorization") String token,
                                                       @PathVariable UUID idAdvocacia);
 
+    @PatchMapping("/edita-advocacia/{idAdvocacia}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @Operation(summary = "Altera Advocacia")
+    void patchAlteraAdvocacia(@RequestHeader(name = "Authorization") String token, @PathVariable UUID idAdvocacia);
 }
