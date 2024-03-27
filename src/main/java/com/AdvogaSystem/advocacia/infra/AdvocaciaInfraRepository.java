@@ -53,6 +53,7 @@ public class AdvocaciaInfraRepository implements AdvocaciaRepository {
     @Override
     public void deletaAdvocaciaPorId(UUID idAdvocacia) {
         log.info("[inicia] AdvocaciaInfraRepository - deletaAdvocaciaPorId");
+        advocaciaSpringDataMongoDBRepository.deleteByIdAdvocacia(idAdvocacia);
         log.info("[finaliza] AdvocaciaInfraRepository - deletaAdvocaciaPorId");
     }
 }
