@@ -43,4 +43,10 @@ public class AdvocaciaController implements AdvocaciaAPI {
         advocaciaService.alteraAdvocacia(emailAdvocacia, idAdvocacia, alteraAdvocaciaRequest);
         log.info("[finaliza] AdvocaciaController - patchAlteraAdvocacia");
     }
+
+    @Override
+    public void deleteDeletaAdvocacia(String token, UUID idAdvocacia) {
+        log.info("[inicia] AdvocaciaController - deleteDeletaAdvocacia");
+        log.info("[finaliza] AdvocaciaController - deleteDeletaAdvocacia");
+    }
 }
