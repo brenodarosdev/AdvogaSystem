@@ -10,4 +10,5 @@ public interface AdvocaciaService {
     AdvocaciaCriadaResponse cadastraNovaAdvocacia(AdvocaciaRequest advocaciaNovoRequest);
     AdvocaciaDetalhadaResponse buscaAdvocaciaPorId(String emailAdvocacia, UUID idAdvocacia);
     void alteraAdvocacia(String emailAdvocacia, UUID idAdvocacia, AdvocaciaRequest alteraAdvocaciaRequest);
+    void deletaAdvocacia(String emailAdvocacia, UUID idAdvocacia);
 }

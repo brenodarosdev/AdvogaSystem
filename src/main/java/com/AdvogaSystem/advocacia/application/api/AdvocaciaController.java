@@ -47,6 +47,9 @@ public class AdvocaciaController implements AdvocaciaAPI {
     @Override
     public void deleteDeletaAdvocacia(String token, UUID idAdvocacia) {
         log.info("[inicia] AdvocaciaController - deleteDeletaAdvocacia");
+        String emailAdvocacia = tokenService.getEmailByBearerToken(token)
+                .orElseThrow(() -> APIException.build(HttpStatus.UNAUTHORIZED, "Token inválido!"));
+        advocaciaService.deletaAdvocacia(emailAdvocacia, idAdvocacia);
         log.info("[finaliza] AdvocaciaController - deleteDeletaAdvocacia");
     }
 }

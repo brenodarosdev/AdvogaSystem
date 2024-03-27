@@ -51,4 +51,11 @@ public class AdvocaciaApplicationService implements AdvocaciaService {
         advocaciaRepository.salva(advocaciaPorEmail);
         log.info("[finaliza] AdvocaciaApplicationService - alteraAdvocacia");
     }
+
+    @Override
+    public void deletaAdvocacia(String emailAdvocacia, UUID idAdvocacia) {
+        log.info("[inica] AdvocaciaApplicationService - deletaAdvocacia");
+        log.info("[finaliza] AdvocaciaApplicationService - deletaAdvocacia");
+
+    }
 }
