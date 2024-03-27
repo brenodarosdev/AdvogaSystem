@@ -9,10 +9,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 @Value
 public class AuthenticationRequest {
     @NotBlank(message = "O email não pode estar em branco!")
-    @Email
     private String email;
-    @NotBlank
-    @Size(min = 6, message = "A senha deve ter no mínimo 6 caracteres", max = 60)
+    @NotBlank(message = "A senha não pode estar em branco!")
     private String senha;
 
     public UsernamePasswordAuthenticationToken getUserPassToken() {
