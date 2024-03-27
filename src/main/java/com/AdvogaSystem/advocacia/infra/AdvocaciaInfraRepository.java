@@ -49,4 +49,10 @@ public class AdvocaciaInfraRepository implements AdvocaciaRepository {
         log.info("[finaliza] AdvocaciaInfraRepository - advocaciaPorId");
         return advocacia;
     }
+
+    @Override
+    public void deletaAdvocaciaPorId(UUID idAdvocacia) {
+        log.info("[inicia] AdvocaciaInfraRepository - deletaAdvocaciaPorId");
+        log.info("[finaliza] AdvocaciaInfraRepository - deletaAdvocaciaPorId");
+    }
 }
