@@ -28,4 +28,9 @@ public interface AdvocaciaAPI {
     @Operation(summary = "Altera Advocacia")
     void patchAlteraAdvocacia(@RequestHeader(name = "Authorization") String token, @PathVariable UUID idAdvocacia,
                               @RequestBody @Valid AdvocaciaRequest alteraAdvocaciaRequest);
+
+    @DeleteMapping("/deleta-advocacia/{idAdvocacia}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @Operation(summary = "Deleta Advocacia")
+    void deleteDeletaAdvocacia(@RequestHeader(name = "Authorization") String token, @PathVariable UUID idAdvocacia);
 }

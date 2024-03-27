@@ -51,4 +51,15 @@ public class AdvocaciaApplicationService implements AdvocaciaService {
         advocaciaRepository.salva(advocaciaPorEmail);
         log.info("[finaliza] AdvocaciaApplicationService - alteraAdvocacia");
     }
+
+    @Override
+    public void deletaAdvocacia(String emailAdvocacia, UUID idAdvocacia) {
+        log.info("[inicia] AdvocaciaApplicationService - deletaAdvocacia");
+        Advocacia advocaciaPorEmail = advocaciaRepository.advocaciaPorEmail(emailAdvocacia);
+        advocaciaRepository.advocaciaPorId(idAdvocacia);
+        advocaciaPorEmail.validaAdvocacia(idAdvocacia);
+        log.info("Advocacia validada - O token pertence à Advocacia");
+        advocaciaRepository.deletaAdvocaciaPorId(idAdvocacia);
+        log.info("[finaliza] AdvocaciaApplicationService - deletaAdvocacia");
+    }
 }

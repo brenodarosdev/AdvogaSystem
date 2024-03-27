@@ -8,4 +8,5 @@ public interface AdvocaciaRepository {
     Advocacia salva(Advocacia advocacia);
     Advocacia advocaciaPorEmail(String emailAdvocacia);
     Advocacia advocaciaPorId(UUID idAdvocacia);
+    void deletaAdvocaciaPorId(UUID idAdvocacia);
 }

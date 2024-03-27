@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface AdvocaciaSpringDataMongoDBRepository extends MongoRepository<Advocacia, UUID> {
     Optional<Advocacia> findByEmail(String emailAdvocacia);
     Optional<Advocacia> findByIdAdvocacia(UUID idAdvocacia);
+    void deleteByIdAdvocacia(UUID idAdvocacia);
 }
