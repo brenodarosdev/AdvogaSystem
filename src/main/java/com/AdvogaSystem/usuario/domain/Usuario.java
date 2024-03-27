@@ -1,5 +1,6 @@
 package com.AdvogaSystem.usuario.domain;
 
+import com.AdvogaSystem.usuario.application.api.UsuarioRequest;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
@@ -26,10 +27,10 @@ public class Usuario {
     @NotBlank(message = "O campo Telefone não pode estar em branco!")
     String numeroDeTelefone;
 
-    public Usuario(UUID idAdvocacia, String nomeCompleto, String numeroDeTelefone) {
+    public Usuario(UsuarioRequest usuarioRequest, UUID idAdvocacia) {
         this.idUsuario = UUID.randomUUID();
         this.idAdvocacia = idAdvocacia;
-        this.nomeCompleto = nomeCompleto;
-        this.numeroDeTelefone = numeroDeTelefone;
+        this.nomeCompleto = usuarioRequest.getNomeCompleto();
+        this.numeroDeTelefone = usuarioRequest.getNumeroDeTelefone();
     }
 }
