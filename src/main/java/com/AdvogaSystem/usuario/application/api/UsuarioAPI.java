@@ -10,9 +10,9 @@ import java.util.UUID;
 
 @Tag(name = "Usuário")
 @RestController
-@RequestMapping("/public/v1/usuario")
+@RequestMapping("/public/v1/usuario/{idAdvocacia}")
 public interface UsuarioAPI {
-    @PostMapping("/novo-usuario/{idAdvocacia}")
+    @PostMapping("/novo-usuario")
     @ResponseStatus(code = HttpStatus.CREATED)
     @Operation(summary = "Cadastra novo Usuário")
     UsuarioCriadoResponse postCadastraNovoUsuario(@Valid @RequestBody UsuarioRequest usuarioNovoRequest,
